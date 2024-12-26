@@ -6,9 +6,9 @@ LIBFT = libft/libft.a
 
 CC = gcc
 
-CFLAGS = -Werror -Wall -Wextra -I $(HEADER)
+CFLAGS = -Werror -Wall -Wextra -g -I $(HEADER)
 
-SRCS = main push_swap sort utils validate push reverse rotate swap
+SRCS = main push_swap sort utils validate push reverse rotate swap radix
 
 SRC = $(addprefix src/, $(addsuffix .c, $(SRCS)))
 
@@ -27,7 +27,7 @@ all:  $(NAME)
 
 objs/%.o:	src/%.c
 			@mkdir -p $(dir $@)
-			@${CC} ${FLAGS} -c $< -o $@
+			@${CC} ${CFLAGS} -c $< -o $@
 
 $(NAME):	$(OBJS) $(LIBFT) $(HEADER)
 			@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBFT)

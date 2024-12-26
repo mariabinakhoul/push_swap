@@ -6,7 +6,7 @@
 /*   By: mabi-nak <mabi-nak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 11:53:51 by mabi-nak          #+#    #+#             */
-/*   Updated: 2024/08/19 13:09:08 by mabi-nak         ###   ########.fr       */
+/*   Updated: 2024/09/13 18:18:27 by mabi-nak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@
 
 typedef struct s_list
 {
-	int				content;
+	long			content;
 	struct s_list	*next;
-	int				index;
+	struct s_list	*prev;
+	long			index;
 }					t_list;
 int				ft_atoi(const char *str);
 void			ft_bzero(void *s, size_t n);
@@ -69,7 +70,7 @@ void			ft_lstadd_back(t_list **lst, t_list *new);
 void			ft_lstdelone(t_list *lst, void (*del)(int));
 void			ft_lstclear(t_list **lst, void (*del)(int));
 void			ft_lstiter(t_list *lst, void (*f)(int));
-t_list			*ft_lstmap(t_list *lst, int(*f)(int),
+t_list			*ft_lstmap(t_list *lst, int (*f)(int),
 					void (*del)(int));
 int				ft_printf(const char *str, ...);
 int				ft_printf_c(char c);

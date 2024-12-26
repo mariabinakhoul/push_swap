@@ -6,52 +6,47 @@
 /*   By: mabi-nak <mabi-nak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 11:58:39 by mabi-nak          #+#    #+#             */
-/*   Updated: 2024/08/19 12:17:56 by mabi-nak         ###   ########.fr       */
+/*   Updated: 2024/12/26 00:56:49 by mabi-nak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	swap(t_list **stack)
+int	swap_a(t_list **a)
 {
-	int		value;
-	t_list	*tmp;
-	t_list	*next;
+	t_list	*temp1;
+	t_list	*temp2;
 
-	if (ft_lstsize(*stack) < 2)
+	if (!*a || !(*a)->next)
 		return (-1);
-	tmp = (*stack);
-	next = tmp -> next;
-	if (tmp == NULL && next == NULL)
-		exit (0);
-	value = tmp -> content;
-	tmp -> content = next->content;
-	next -> content = value;
-	return (0);
-}
-
-int	swap_a(t_list **stack_a)
-{
-	if (swap(stack_a) == -1)
-		return (-1);
-	swap(stack_a);
+	temp1 = *a;
+	temp2 = (*a)->next;
+	temp1->next = temp2->next;
+	temp2->next = temp1;
+	(*a) = temp2;
 	ft_printf("sa\n");
+	return (0);
 }
 
 int	swap_b(t_list **stack_b)
 {
-	if (swap(stack_b) == -1)
+	t_list	*temp1;
+	t_list	*temp2;
+
+	if (!*stack_b || !(*stack_b)->next)
 		return (-1);
-	swap(stack_b);
+	temp1 = *stack_b;
+	temp2 = (*stack_b)->next;
+	temp1->next = temp2->next;
+	temp2->next = temp1;
+	(*stack_b) = temp2;
 	ft_printf("sb\n");
+	return (0);
 }
 
 int	swap_both(t_list **stack_a, t_list **stack_b)
 {
-	if ((ft_lstsize(*stack_a) < 2) || (ft_lstsize(*stack_b) < 2))
-		return (-1);
-	swap(stack_a);
-	swap(stack_b);
-	ft_printf("ss\n");
+	swap_a(stack_a);
+	swap_b(stack_b);
 	return (0);
 }

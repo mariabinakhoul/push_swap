@@ -6,7 +6,7 @@
 /*   By: mabi-nak <mabi-nak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 15:32:55 by mabi-nak          #+#    #+#             */
-/*   Updated: 2024/08/19 12:30:55 by mabi-nak         ###   ########.fr       */
+/*   Updated: 2024/12/10 19:20:43 by mabi-nak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,19 @@ int	get_min(t_list **stack)
 		tmp = tmp->next;
 	}
 	return (index);
+}
+
+void	give_new_index(t_list **a)
+{
+	t_list	*temp;
+	int		i;
+
+	i = 0;
+	temp = *a;
+	while (temp)
+	{
+		temp->index = i;
+		i++;
+		temp = temp->next;
+	}
 }

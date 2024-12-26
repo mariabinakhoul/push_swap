@@ -6,18 +6,18 @@
 /*   By: mabi-nak <mabi-nak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 17:00:39 by mabi-nak          #+#    #+#             */
-/*   Updated: 2024/08/19 13:08:54 by mabi-nak         ###   ########.fr       */
+/*   Updated: 2024/08/20 16:04:40 by mabi-nak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, int(*f)(int),
+t_list	*ft_lstmap(t_list *lst, int (*f)(int),
 		void (*del)(int))
 {
 	t_list	*new;
 	t_list	*mode;
-	int	set;
+	int		set;
 
 	if (!lst || !f || !del)
 		return (NULL);

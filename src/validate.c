@@ -6,7 +6,7 @@
 /*   By: mabi-nak <mabi-nak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 11:29:17 by mabi-nak          #+#    #+#             */
-/*   Updated: 2024/08/19 11:53:56 by mabi-nak         ###   ########.fr       */
+/*   Updated: 2024/12/26 06:30:43 by mabi-nak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ int	is_number(char *str)
 
 int	is_duplicate(char **arg, int nb, int i)
 {
-	i = 1;
+	i += 1;
 	while (arg[i])
 	{
 		if (ft_atoi(arg[i]) == nb)
-			return (0);
+			return (1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 int	is_sorted(t_list **nb)
@@ -54,10 +54,3 @@ int	is_sorted(t_list **nb)
 	}
 	return (1);
 }
-
-// #include <stdio.h>
-// int main(int argc, char **argv)
-// {
-// 	printf("%d\n", is_num(argv[1]));
-// 	return (0);
-// }

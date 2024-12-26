@@ -6,7 +6,7 @@
 /*   By: mabi-nak <mabi-nak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 12:51:53 by mabi-nak          #+#    #+#             */
-/*   Updated: 2024/08/20 13:40:41 by mabi-nak         ###   ########.fr       */
+/*   Updated: 2024/12/26 04:37:47 by mabi-nak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	init_push_swap(int argc, char **argv, t_list **a)
 		nbr = ft_atoi(argv[i]);
 		if (!is_number(argv[i]))
 			exit (1);
-		if (!is_duplicate(argv, nbr, i))
+		if (is_duplicate(argv, nbr, i))
 			exit (1);
 		init_stack(nbr, a, i, argc);
 		if (argc == 2)
@@ -54,7 +54,9 @@ void	init_stack(int nb, t_list **stack, int i, int argc)
 void	init_sort(t_list **stack_a, t_list **stack_b)
 {
 	int	size;
+	int	i;
 
+	i = 0;
 	if (is_sorted(stack_a) || ft_lstsize(*stack_a) == 0
 		|| ft_lstsize(*stack_a) == 1)
 		return ;
@@ -68,5 +70,7 @@ void	init_sort(t_list **stack_a, t_list **stack_b)
 	else if (size == 5)
 		ft_sort_five(stack_a, stack_b);
 	else if (size > 5)
-		radix_sort(stack_a, stack_b);
+	{
+		radix_sort(stack_a, stack_b, &i);
+	}
 }
